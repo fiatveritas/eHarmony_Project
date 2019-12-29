@@ -8,10 +8,16 @@ def generate_array(name):
 	training_data = [j.split(',') for i in training_data for j in i]
 	new_data = []
 	holder = []
+	count = 0
 	for i in training_data:
 		for j in i:
-			holder.append(float(j))
+			if count < 57:
+				holder.append(int(j))
+				count +=1
+			else:
+				holder.append(float(j))
 		new_data.append(holder)
+		count = 0
 		holder = []
 	return new_data
 
